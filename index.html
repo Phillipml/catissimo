@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boostrap - Cards</title>
+    <link rel="stylesheet" href="./lib/bootstrap.min.css" />
+
+    <style>
+      header {
+        background-color: rgba(156, 255, 147, 1);
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .active {
+        font-weight: bold;
+        color: white !important;
+      }
+      .card-header {
+        z-index: 0;
+      }
+
+      .img-size {
+        width: 30vh;
+      }
+
+      .menu {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        padding: 0;
+      }
+      .line {
+        fill: none;
+        stroke: black;
+        stroke-width: 6;
+        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+          stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .line1 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+      }
+      .line2 {
+        stroke-dasharray: 60 60;
+        stroke-width: 6;
+      }
+      .line3 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+      }
+      .opened .line1 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+      }
+      .opened .line2 {
+        stroke-dasharray: 1 60;
+        stroke-dashoffset: -30;
+        stroke-width: 6;
+      }
+      .opened .line3 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+      }
+      .carousel-caption h2 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+      }
+      .bg-green {
+        background-color: rgba(7, 85, 0, 0.1);
+        border: none;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="navbar navbar-expand-lg">
+          <div class="img-size">
+            <img src="./images/logo.png" alt="" class="img-fluid" />
+          </div>
+          <button
+            type="button"
+            class="menu navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+            aria-label="Main Menu"
+          >
+            <svg width="50" height="50" viewBox="0 0 100 100">
+              <path
+                class="line line1"
+                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+              />
+              <path class="line line2" d="M 20,50 H 80" />
+              <path
+                class="line line3"
+                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+              />
+            </svg>
+          </button>
+          <nav
+            class="collapse navbar-collapse justify-content-end p-2"
+            id="menu"
+          >
+            <ul class="nav nav-pills navbar-nav">
+              <li class="nav-item">
+                <a href="#slides" class="nav-link active text-center">Slide</a>
+              </li>
+              <li class="nav-item">
+                <a href="#highlights" class="nav-link text-center">Destaques</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div data-bs-spy="scroll" data-bs-target="#header">
+      <section class="container text-center mt-5" id="about">
+        <h2>Catíssimo</h2>
+        <p>
+          A Catissímo é uma empresa dedicada ao bem-estar dos seus clientes
+          felinos. Com uma ampla gama de produtos e serviços pensados para o
+          conforto, saúde e diversão dos gatos, a Catissímo se destaca pela
+          qualidade e cuidado em cada detalhe. Desde brinquedos inovadores até
+          alimentos nutritivos e acessórios essenciais, nossa missão é
+          proporcionar uma experiência única para os gatos e suas famílias.
+          Comprometidos com a excelência e com a paixão pelos felinos, buscamos
+          sempre trazer novidades e soluções que atendam às necessidades de
+          nossos clientes, garantindo o melhor para seus amigos de quatro patas.
+        </p>
+      </section>
+      <section class="container" id="slides">
+        <div
+          class="carousel carousel-fade slide w-50 mt-5 m-auto"
+          id="carouselSlide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2500">
+              <img
+                src="https://blog-static.petlove.com.br/wp-content/uploads/2022/05/gato-brinquedo-petlove.jpg"
+                class="d-block w-100"
+              />
+              <div class="carousel-caption pb-0">
+                <h2>Brinquedos</h2>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+              <img
+                src="https://blog-static.petlove.com.br/wp-content/uploads/2022/01/dipirona-gato.jpg"
+                class="d-block w-100"
+              />
+              <div class="carousel-caption pb-0">
+                <h2>Remédios</h2>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2500">
+              <img
+                src="https://peletilar.com.br/wp-content/uploads/2021/10/cat-litter-box-Depositphotos_468724112_l-2015-e1623145782535.jpg"
+                class="d-block w-100"
+              />
+              <div class="carousel-caption pb-0">
+                <h2>Areias</h2>
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="carousel-control-prev"
+            data-bs-target="#carouselSlide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            type="button"
+            class="carousel-control-next"
+            data-bs-target="#carouselSlide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+          <div class="carousel-indicators mb-0">
+            <button
+              class="active"
+              data-bs-target="#carouselSlide"
+              data-bs-slide-to="0"
+              type="button"
+            ></button>
+            <button
+              data-bs-target="#carouselSlide"
+              data-bs-slide-to="1"
+              type="button"
+            ></button>
+            <button
+              data-bs-target="#carouselSlide"
+              data-bs-slide-to="2"
+              type="button"
+            ></button>
+          </div>
+        </div>
+      </section>
+      <section class="container p-4" id="highlights">
+        <h2 class="text-center">Destaques</h2>
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Areia Viva Verde</h2></header>
+              <img
+                src="https://m.media-amazon.com/images/I/61k7Shak4GL._AC_UF1000,1000_QL80_.jpg"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R$169,00</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Arranhador</h2></header>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0661/1173/4015/files/5_c1a6867a-67bf-4be7-8e95-047af5b9fc7d_480x480.png?v=1707590739"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R$ 52,90</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Túnel</h2></header>
+              <img
+                src="https://cdn.awsli.com.br/600x450/1964/1964763/produto/240476235d0d9d0c77f.jpg"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R%45,80</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Otodem</h2></header>
+              <img
+                src="https://cobasi.vteximg.com.br/arquivos/ids/178474/Otodem-Plus-Solucao-Otologica-Ceva---20ml.jpg?v=638137318004600000"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R$73,50</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Ração Golden</h2></header>
+              <img
+                src="https://www.petlove.com.br/images/products/266024/product/Ra%C3%A7%C3%A3o_Seca_PremieR_Pet_Golden_Gatos_Adultos_Carne_-_10_1_Kg_310001-3_1.jpg?1674066666"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R$ 199,99</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center g-3"
+          >
+            <div class="card w-75 text-center bg-green">
+              <header class="card-header"><h2>Peitoral</h2></header>
+              <img
+                src="https://m.media-amazon.com/images/I/71WpLgBf+lL._AC_UF1000,1000_QL80_.jpg"
+              />
+              <div class="card-body">
+                <h4 class="card-title">R$ 32,85</h4>
+                <a href="#" class="btn btn-primary">Comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+          <p>&copy; 2024 Catíssimo. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+    </div>
+    <script src="./lib/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
